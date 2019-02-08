@@ -1,6 +1,31 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react'
+import logo from './logo.svg'
+import './App.css'
+import { File } from './components/Folder/File'
+
+import ApolloClient from 'apollo-boost'
+import gql from 'graphql-tag'
+
+const client = new ApolloClient({
+  uri: 'http://localhost:4000/'
+})
+
+client
+  .query({
+    query: gql`
+      {
+        getRootFolderEntries {
+          id
+          isFile
+          metaData {
+            tags
+            attributes
+          }
+        }
+      }
+    `
+  })
+  .then(result => console.log(result))
 
 class App extends Component {
   render() {
@@ -21,8 +46,8 @@ class App extends Component {
           </a>
         </header>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
