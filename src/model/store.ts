@@ -3,7 +3,7 @@ import { combineEpics, createEpicMiddleware } from 'redux-observable'
 import { AppState, DomainState, app, domain } from './reducers'
 import { fetchTodosEpic } from './epics'
 import { RootAction } from '.'
-import { Services } from '../services'
+import { Services } from '../services/picRepo'
 
 export type RootState = {
   app: AppState

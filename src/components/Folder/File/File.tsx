@@ -1,4 +1,9 @@
 import React from 'react'
-import { EFile } from '../../../model'
+import { IFile } from '../../../model'
 
-export const File = (file: EFile) => <div>{file.name}</div>
+export const File = (file: IFile) => (
+  <div>
+    <p>adsfdadsf</p>
+    <div>{file.name}</div>
+  </div>
+)

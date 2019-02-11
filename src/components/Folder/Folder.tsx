@@ -1,4 +1,4 @@
 import React from 'react'
-import { EFolder } from '../../model'
+import { IFolder } from '../../model'
 
-export const Folder = (folder: EFolder) => <div>{folder.name}</div>
+export const Folder = (folder: IFolder) => <div>{folder.name}</div>

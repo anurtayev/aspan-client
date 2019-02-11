@@ -9,7 +9,7 @@ import { Epic } from 'redux-observable'
 import { IEntry } from '../entities'
 import { pipe, from, of } from 'rxjs'
 import { RootAction } from '..'
-import { Services } from '../../services'
+import { Services } from '../../services/picRepo'
 import { fetchEntries } from '../actions'
 import { Reducer } from 'redux'
 
