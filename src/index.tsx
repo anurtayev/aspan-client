@@ -3,13 +3,17 @@ import ReactDOM from 'react-dom'
 import './index.css'
 import App from './App'
 import * as serviceWorker from './serviceWorker'
-import { Provider } from 'react-redux'
-import { store } from './model'
+import { ApolloProvider } from 'react-apollo'
+import ApolloClient from 'apollo-boost'
+
+const client = new ApolloClient({
+  uri: 'http://localhost:4000/'
+})
 
 ReactDOM.render(
-  <Provider store={store}>
+  <ApolloProvider client={client}>
     <App />
-  </Provider>,
+  </ApolloProvider>,
   document.getElementById('root')
 )
 
