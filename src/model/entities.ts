@@ -14,18 +14,22 @@ export interface IMetaData {
 /**
  * Basic file system entry interface.
  */
-export interface IEntry {
+interface IBasicEntry {
   id: TEntryId
-  isFile: boolean
-  name: string
-  parentId: TEntryId
+  name?: string
+  parentId?: TEntryId
+  metaData?: IMetaData
 }
 
-export interface IFile extends IEntry {
-  contentType: string
-  size: number
+export interface IFile extends IBasicEntry {
+  type: 'file'
+  contentType?: string
+  size?: number
 }
 
-export interface IFolder extends IEntry {
-  children?: IEntry[]
+export interface IFolder extends IBasicEntry {
+  type: 'folder'
+  children?: TEntry[]
 }
+
+export type TEntry = IFile | IFolder

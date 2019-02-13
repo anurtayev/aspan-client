@@ -1,21 +1,39 @@
-import React, { Component } from 'react'
-import logo from './logo.svg'
+import React, { useState } from 'react'
 import './App.css'
-import { File } from './components/Folder/File'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
-import gql from 'graphql-tag'
 import { Browser } from './components/Browser'
+import { Query } from 'react-apollo'
+import gql from 'graphql-tag'
+import { TEntryId } from './model'
 
-class App extends Component {
-  render() {
-    return (
-      <Router>
-        <div>
-          <Route exact path="/" component={Browser} />
-        </div>
-      </Router>
-    )
+const getQuery = (folder: TEntryId) => gql`
+  {
+    getFolderEntries(id: "${folder}") {
+      id
+      type
+      name
+    }
   }
-}
+`
 
-export default App
+export default () => {
+  const [currentFolder, setCurrentFolder] = useState('/')
+  console.log(`currentFolder: ${currentFolder}`)
+
+  return (
+    <Query query={getQuery(currentFolder)}>
+      {({ loading, error, data }) => {
+        if (loading) return 'Loading...'
+        if (error) return `Error! ${error.message}`
+
+        console.log(JSON.stringify(data.getFolderEntries, null, 2))
+
+        return (
+          <Browser
+            entries={data.getFolderEntries}
+            onFolderClick={folder => setCurrentFolder(folder)}
+          />
+        )
+      }}
+    </Query>
+  )
+}

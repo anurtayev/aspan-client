@@ -4,12 +4,12 @@
   "private": true,
   "dependencies": {
     "apollo-boost": "^0.1.27",
-    "formik": "^1.4.2",
+    "formik": "^1.5.0",
     "furtive": "^2.4.0",
     "graphql": "^14.1.1",
-    "react": "^16.7.0",
-    "react-apollo": "^2.4.0",
-    "react-dom": "^16.7.0",
+    "react": "^16.8.1",
+    "react-apollo": "^2.4.1",
+    "react-dom": "^16.8.1",
     "react-router-dom": "^4.3.1"
   },
   "devDependencies": {
