@@ -6,20 +6,18 @@ import { Folder } from '../Folder'
 
 export const Browser = ({
   entries,
-  onFolderClick
+  gotoFolder
 }: {
   entries: TEntry[]
-  onFolderClick: (folder: TEntryId) => void
+  gotoFolder: (folder: TEntryId) => void
 }) => (
   <div className="Browser">
-    {entries.map(entry => (
-      <div key={entry.id}>
-        {entry.type === 'file' ? (
-          <File file={entry} />
-        ) : (
-          <Folder folder={entry} onFolderClick={onFolderClick} />
-        )}
-      </div>
-    ))}
+    {entries.map(entry =>
+      entry.type === 'file' ? (
+        <File file={entry} key={entry.id} />
+      ) : (
+        <Folder folder={entry} gotoFolder={gotoFolder} key={entry.id} />
+      )
+    )}
   </div>
 )

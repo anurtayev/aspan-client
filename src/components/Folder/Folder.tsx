@@ -4,15 +4,15 @@ import { IFolder, TEntryId } from '../../model'
 
 export const Folder = ({
   folder,
-  onFolderClick
+  gotoFolder
 }: {
   folder: IFolder
-  onFolderClick: (folder: TEntryId) => void
+  gotoFolder: (folder: TEntryId) => void
 }) => (
   <div
     className="Folder"
     onClick={() => {
-      onFolderClick(folder.id)
+      gotoFolder(folder.id)
     }}
   >
     <p>Folder</p>

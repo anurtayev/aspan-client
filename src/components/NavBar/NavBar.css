@@ -1,0 +1,10 @@
+.NavBar {
+  display: flex;
+  justify-content: flex-start;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+
+.NavBar__Element {
+  margin-left: 1em;
+}

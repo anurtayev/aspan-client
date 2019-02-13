@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import './App.css'
 import { Browser } from './components/Browser'
+import { NavBar } from './components/NavBar'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import { TEntryId } from './model'
@@ -17,7 +18,6 @@ const getQuery = (folder: TEntryId) => gql`
 
 export default () => {
   const [currentFolder, setCurrentFolder] = useState('/')
-  console.log(`currentFolder: ${currentFolder}`)
 
   return (
     <Query query={getQuery(currentFolder)}>
@@ -25,13 +25,13 @@ export default () => {
         if (loading) return 'Loading...'
         if (error) return `Error! ${error.message}`
 
-        console.log(JSON.stringify(data.getFolderEntries, null, 2))
+        const gotoFolder = (folder: TEntryId): void => setCurrentFolder(folder)
 
         return (
-          <Browser
-            entries={data.getFolderEntries}
-            onFolderClick={folder => setCurrentFolder(folder)}
-          />
+          <div className="App">
+            <NavBar gotoFolder={gotoFolder} currentFolder={currentFolder} />
+            <Browser entries={data.getFolderEntries} gotoFolder={gotoFolder} />
+          </div>
         )
       }}
     </Query>
