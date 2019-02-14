@@ -13,7 +13,6 @@ export const NavBar = ({
   const parentFolderId = parentFolder(currentFolder)
   return (
     <div className="NavBar">
-      <span className="NavBar__Element">{currentFolder}</span>
       <button
         className="pure-button pure-button-primary NavBar__Element"
         onClick={() => {
@@ -32,6 +31,7 @@ export const NavBar = ({
           <i className="fas fa-arrow-alt-circle-up" />
         </button>
       )}
+      <span className="NavBar__Element">{currentFolder}</span>
     </div>
   )
 }

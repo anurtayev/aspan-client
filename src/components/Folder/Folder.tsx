@@ -15,7 +15,7 @@ export const Folder = ({
       gotoFolder(folder.id)
     }}
   >
-    <p>Folder</p>
-    {folder.name}
+    <i className="far fa-folder fa-5x" />
+    <p>{folder.name}</p>
   </div>
 )

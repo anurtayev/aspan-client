@@ -10,14 +10,20 @@ export const Browser = ({
 }: {
   entries: TEntry[]
   gotoFolder: (folder: TEntryId) => void
-}) => (
-  <div className="Browser">
-    {entries.map(entry =>
-      entry.type === 'file' ? (
-        <File file={entry} key={entry.id} />
-      ) : (
-        <Folder folder={entry} gotoFolder={gotoFolder} key={entry.id} />
-      )
-    )}
-  </div>
-)
+}) => {
+  const sortedEntries = [
+    ...entries.filter(entry => entry.type === 'folder').sort(),
+    ...entries.filter(entry => entry.type === 'file').sort()
+  ]
+  return (
+    <div className="Browser">
+      {sortedEntries.map(entry =>
+        entry.type === 'file' ? (
+          <File file={entry} key={entry.id} />
+        ) : (
+          <Folder folder={entry} gotoFolder={gotoFolder} key={entry.id} />
+        )
+      )}
+    </div>
+  )
+}

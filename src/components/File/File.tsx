@@ -4,7 +4,7 @@ import { IFile } from '../../model'
 
 export const File = ({ file }: { file: IFile }) => (
   <div className="File">
-    <p>File</p>
-    <div>{file.name}</div>
+    <i className="far fa-file fa-5x" />
+    <p>{file.name}</p>
   </div>
 )
