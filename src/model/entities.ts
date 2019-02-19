@@ -25,6 +25,8 @@ export interface IFile extends IBasicEntry {
   type: 'file'
   contentType?: string
   size?: number
+  image?: string
+  thumbImage?: string
 }
 
 export interface IFolder extends IBasicEntry {

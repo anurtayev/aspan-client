@@ -16,7 +16,7 @@ export const Browser = ({
     ...entries.filter(entry => entry.type === 'file').sort()
   ]
   return (
-    <div className="Browser">
+    <div className="Browser-flex">
       {sortedEntries.map(entry =>
         entry.type === 'file' ? (
           <File file={entry} key={entry.id} />

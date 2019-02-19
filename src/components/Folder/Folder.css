@@ -1,8 +1,8 @@
 .Folder {
-  border: 0.1em solid black;
-  height: 10em;
-  width: 10em;
-  padding: 1em;
-  margin: 1em 0 0 1em;
   text-align: center;
+  width: 10em;
+  height: 10em;
+  margin: 0.5em;
+  border: 0.05em solid black;
+  border-radius: 3%;
 }

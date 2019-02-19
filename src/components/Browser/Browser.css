@@ -1,10 +1,13 @@
-.Browser {
+.Browser-flex {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start;
   border: 0.1em solid lightblue;
-  margin: 1em 1em 1em 1em;
-  padding-bottom: 1em;
-  flex: 1 1 auto;
-  align-content: flex-start;
+}
+
+.Browser-grid {
+  display: grid;
+  grid-gap: 5px;
+  grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+  grid-template-rows: repeat(100, 10em);
 }

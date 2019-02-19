@@ -1,11 +1,15 @@
 .NavBar {
   display: flex;
   justify-content: flex-start;
-  margin: 1em 1em 0 1em;
   height: 3em;
-  flex: 0 1 auto;
+  position: sticky;
+  top: 0px;
+  background: white;
 }
 
-.NavBar__Element {
-  margin-right: 1em;
+.NavBar__CurrentPath {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 1em;
 }

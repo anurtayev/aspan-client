@@ -12,6 +12,13 @@ const getQuery = (folder: TEntryId) => gql`
       id
       type
       name
+      metaData {
+        title
+        description
+      }
+      ... on File {
+        thumbImage
+      }
     }
   }
 `

@@ -31,7 +31,9 @@ export const NavBar = ({
           <i className="fas fa-arrow-alt-circle-up" />
         </button>
       )}
-      <span className="NavBar__Element">{currentFolder}</span>
+      <div className="NavBar__CurrentPath">
+        <span>{currentFolder}</span>
+      </div>
     </div>
   )
 }
