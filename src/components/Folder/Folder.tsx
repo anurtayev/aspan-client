@@ -1,6 +1,7 @@
 import './Folder.css'
 import React from 'react'
 import { IFolder, TEntryId } from '../../model'
+import { ReactComponent as Logo } from './sunglasses.svg'
 
 export const Folder = ({
   folder,
@@ -15,7 +16,7 @@ export const Folder = ({
       gotoFolder(folder.id)
     }}
   >
-    <i className="far fa-folder fa-5x" />
+    <Logo />
     <p>{folder.name}</p>
   </div>
 )
